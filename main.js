@@ -49,6 +49,9 @@ let handleResponse = (response) => {
     };
 };
 
+let actionHandler = (watsonResponse) => {
+};
+
 let handleRequest = (request) => {
     return new Promise((resolve, reject) => {
         const input = request.intent ? request.intent.slots.EverythingSlot.value : 'start skill';
