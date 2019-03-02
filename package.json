@@ -3,19 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "scripts": {
-    "test": "npm run unit && npm run eslint",
-    "eslint": "eslint *.js test",
-    "unit": "istanbul cover _mocha test/unit -- -R spec"
-  },
-  "author": "",
+  "author": "team6",
   "license": "Apache-2.0",
-  "repository": "github:IBM/alexa-skill-watson-conversation",
+  "repository": "github.com/kirandasika98/team6-assgn2",
   "dependencies": {
-    "alexa-verifier": "^2.0.1",
-    "openwhisk": "^3.18.0",
-    "redis": "^2.8.0",
-    "request": "^2.88.0",
     "watson-developer-cloud": "^3.15.0"
   },
   "devDependencies": {
