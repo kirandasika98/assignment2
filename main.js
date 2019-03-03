@@ -47,9 +47,12 @@ let initClients = (args) => {
 
 let handleResponse = (watsonResponse, resolve) => {
     let alexaResponse;
-    if (watsonResponse.output.text.length > 0) {
+    if (watsonResponse && watsonResponse.output.text.length > 0) {
         // assign the first value in the array as our alexa response
         alexaResponse = watsonResponse.output.text[0];
+    } else {
+        // we don't have a watson for the LauchRequest
+        alexaResponse = 'What would you like to do?';
     }
     console.log('sending response ' + alexaResponse);
     resolve({ 
@@ -66,6 +69,13 @@ let handleResponse = (watsonResponse, resolve) => {
 
 let handleRequest = (request) => {
     return new Promise((resolve, reject) => {
+        // check if the request type is a launch request
+        if (request.type == "LaunchRequest") {
+            // resolving with an undefined so that we can send a default
+            // response for a launch
+            resolve(undefined);
+            return;
+        }
         const input = request.intent ? request.intent.slots.EverythingSlot.value : 'start skill';
         console.log('input ' + input);
         assistant.message({
