@@ -52,7 +52,7 @@ let handleResponse = (watsonResponse, resolve) => {
         alexaResponse = watsonResponse.output.text[0];
     } else {
         // we don't have a watson for the LauchRequest
-        alexaResponse = 'What would you like to do?';
+        alexaResponse = 'What would you like to do sir?';
     }
     console.log('sending response ' + alexaResponse);
     resolve({ 
